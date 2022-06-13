@@ -11,7 +11,7 @@ export const handleAddTodo = (event) => {
   document.querySelector("#new-todo-title").value = "";
 
   saveTodo(newTodo);
-  setLocalStorage();
+  setLocalStorage("todosState", data);
   render();
 };
 
@@ -23,7 +23,7 @@ export const handleCheckButton = (event) => {
       item.checked = !item.checked;
     }
   }
-  setLocalStorage();
+  setLocalStorage("todosState", data);
   render();
 };
 
@@ -33,7 +33,7 @@ export const handleRemoveButton = (event) => {
   const todoId = event.target.closest("li").dataset.id;
   data.todos.splice(todoId, 1);
 
-  setLocalStorage();
+  setLocalStorage("todosState", data);
   render();
 };
 
@@ -59,7 +59,7 @@ export const handleChangeTodo = (event) => {
     const editTodoId = event.target.closest("li").dataset.id;
     data.todos[editTodoId].text = editTodo;
 
-    setLocalStorage();
+    setLocalStorage("todosState", data);
     render();
   }
 };

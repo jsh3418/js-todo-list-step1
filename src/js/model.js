@@ -8,6 +8,6 @@ export const initData = () => {
   }
 };
 
-export const setLocalStorage = () => {
-  localStorage.setItem("todosState", JSON.stringify(data));
+export const setLocalStorage = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
 };
