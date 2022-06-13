@@ -2,12 +2,12 @@ export const data = {
   todos: [],
 };
 
-export const getLocalStorage = () => {
-  if (localStorage.getItem("data") !== null) {
-    data.todos = JSON.parse(localStorage.getItem("data")).todos;
+export const initData = () => {
+  if (localStorage.getItem("todosState") !== null) {
+    data.todos = JSON.parse(localStorage.getItem("todosState")).todos;
   }
 };
 
 export const setLocalStorage = () => {
-  localStorage.setItem("data", JSON.stringify(data));
+  localStorage.setItem("todosState", JSON.stringify(data));
 };

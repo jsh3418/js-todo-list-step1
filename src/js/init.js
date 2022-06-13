@@ -7,7 +7,7 @@ import {
   handleFilterList,
 } from "./contoller.js";
 import { render } from "./view.js";
-import { getLocalStorage } from "./model.js";
+import { initData } from "./model.js";
 
 const initEventListener = () => {
   const inputform = document.querySelector("form");
@@ -26,6 +26,6 @@ const initEventListener = () => {
 
 export const initApp = () => {
   initEventListener();
-  getLocalStorage();
+  initData();
   render();
 };
