@@ -1,5 +1,3 @@
-import { data } from "./model.js";
-
 export const saveTodo = (newTodo) => {
   const newData = {
     id: Date.now(),
@@ -7,5 +5,5 @@ export const saveTodo = (newTodo) => {
     checked: false,
   };
 
-  data.todos.push(newData);
+  return newData;
 };

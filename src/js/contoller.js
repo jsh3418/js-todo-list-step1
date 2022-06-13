@@ -10,7 +10,7 @@ export const handleAddTodo = (event) => {
 
   document.querySelector("#new-todo-title").value = "";
 
-  saveTodo(newTodo);
+  data.todos.push(saveTodo(newTodo));
   setLocalStorage("todosState", data);
   render();
 };
