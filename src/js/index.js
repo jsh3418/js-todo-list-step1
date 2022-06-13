@@ -1,4 +1,3 @@
-import { initApp } from "./init.js"
+import { initApp } from "./init.js";
 
-
-initApp()
+initApp();
