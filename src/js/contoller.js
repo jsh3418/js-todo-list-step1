@@ -1,4 +1,4 @@
-import { render, countItem } from "./view.js";
+import { renderTodoList, countItem } from "./view.js";
 import { saveTodo } from "./service.js";
 import { data, setLocalStorage } from "./model.js";
 
@@ -18,7 +18,7 @@ export const handleAddTodo = (event) => {
   }
   data.todos.push(saveTodo(newTodoId, newTodo));
   setLocalStorage("todosState", data);
-  render();
+  renderTodoList(data.todos);
 };
 
 export const handleCheckButton = (event) => {
@@ -30,7 +30,7 @@ export const handleCheckButton = (event) => {
     }
   }
   setLocalStorage("todosState", data);
-  render();
+  renderTodoList(data.todos);
 };
 
 export const handleRemoveButton = (event) => {
@@ -40,7 +40,7 @@ export const handleRemoveButton = (event) => {
   data.todos.splice(todoId, 1);
 
   setLocalStorage("todosState", data);
-  render();
+  renderTodoList(data.todos);
 };
 
 export const handleTodoDoubleClick = (event) => {
@@ -50,7 +50,7 @@ export const handleTodoDoubleClick = (event) => {
 
 export const handleChangeTodo = (event) => {
   if (event.key === "Escape") {
-    render();
+    renderTodoList(data.todos);
     return;
   }
 
@@ -66,12 +66,12 @@ export const handleChangeTodo = (event) => {
     data.todos[editTodoId].text = editTodo;
 
     setLocalStorage("todosState", data);
-    render();
+    renderTodoList(data.todos);
   }
 };
 
 export const handleFilterList = (event) => {
-  render();
+  renderTodoList(data.todos);
 
   const allTodoList = document.querySelector(".filters .all");
   const activeTodoList = document.querySelector(".filters .active");

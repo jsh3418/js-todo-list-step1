@@ -6,8 +6,9 @@ import {
   handleChangeTodo,
   handleFilterList,
 } from "./contoller.js";
-import { render } from "./view.js";
+import { renderTodoList } from "./view.js";
 import { initData } from "./model.js";
+import { data } from "./model.js";
 
 const initEventListener = () => {
   const inputform = document.querySelector("form");
@@ -27,5 +28,5 @@ const initEventListener = () => {
 export const initApp = () => {
   initEventListener();
   initData();
-  render();
+  renderTodoList(data.todos);
 };

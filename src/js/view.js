@@ -1,7 +1,5 @@
-import { data } from "./model.js";
-
-export const render = () => {
-  const template = data.todos
+export const renderTodoList = (item) => {
+  const template = item
     .map((item, index) => {
       return `
       <li data-id="${index}" class="${item.checked ? "completed" : "false"}">
