@@ -1,6 +1,6 @@
-export const saveTodo = (newTodo) => {
+export const saveTodo = (newTodoId, newTodo) => {
   const newData = {
-    id: Date.now(),
+    id: newTodoId,
     text: newTodo,
     checked: false,
   };

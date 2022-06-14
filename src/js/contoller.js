@@ -10,7 +10,13 @@ export const handleAddTodo = (event) => {
 
   document.querySelector("#new-todo-title").value = "";
 
-  data.todos.push(saveTodo(newTodo));
+  let newTodoId = Date.now();
+  for (let i in data.todos) {
+    while (newTodoId === data.todos[i].id) {
+      newTodoId = Date.now();
+    }
+  }
+  data.todos.push(saveTodo(newTodoId, newTodo));
   setLocalStorage("todosState", data);
   render();
 };
