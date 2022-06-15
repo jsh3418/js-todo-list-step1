@@ -5,7 +5,7 @@ import {
   handleTodoDoubleClick,
   handleChangeTodo,
   handleFilterList,
-} from "./controller/contoller.js";
+} from "./controller/controller.js";
 import { renderTodoList } from "./view.js";
 import { initData } from "./model.js";
 import { data } from "./model.js";
