@@ -16,11 +16,9 @@ export const renderTodoList = (item) => {
     .join("");
   const todoList = document.querySelector("#todo-list");
   todoList.innerHTML = template;
-  countItem();
 };
 
-export const countItem = () => {
+export const renderCountTodoList = (number) => {
   const todoCount = document.querySelector(".todo-count strong");
-  const todoList = document.querySelectorAll("#todo-list li");
-  todoCount.textContent = todoList.length;
+  todoCount.textContent = number;
 };

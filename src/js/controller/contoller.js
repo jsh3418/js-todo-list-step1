@@ -1,6 +1,11 @@
-import { renderTodoList, countItem } from "./view.js";
-import { saveTodo } from "./service.js";
-import { data, setLocalStorage } from "./model.js";
+import { renderTodoList, renderCountTodoList } from "../view.js";
+import { saveTodo } from "../service.js";
+import { data, setLocalStorage } from "../model.js";
+import {
+  countTodoList,
+  countCheckedTodoList,
+  countActiveTodoList,
+} from "./countTodoList.js";
 
 export const handleAddTodo = (event) => {
   event.preventDefault();
@@ -19,6 +24,7 @@ export const handleAddTodo = (event) => {
   data.todos.push(saveTodo(newTodoId, newTodo));
   setLocalStorage("todosState", data);
   renderTodoList(data.todos);
+  renderCountTodoList(countTodoList());
 };
 
 export const handleCheckButton = (event) => {
@@ -31,6 +37,7 @@ export const handleCheckButton = (event) => {
   }
   setLocalStorage("todosState", data);
   renderTodoList(data.todos);
+  renderCountTodoList(countTodoList());
 };
 
 export const handleRemoveButton = (event) => {
@@ -41,6 +48,7 @@ export const handleRemoveButton = (event) => {
 
   setLocalStorage("todosState", data);
   renderTodoList(data.todos);
+  renderCountTodoList(countTodoList());
 };
 
 export const handleTodoDoubleClick = (event) => {
@@ -51,6 +59,7 @@ export const handleTodoDoubleClick = (event) => {
 export const handleChangeTodo = (event) => {
   if (event.key === "Escape") {
     renderTodoList(data.todos);
+    renderCountTodoList(countTodoList());
     return;
   }
 
@@ -67,6 +76,7 @@ export const handleChangeTodo = (event) => {
 
     setLocalStorage("todosState", data);
     renderTodoList(data.todos);
+    renderCountTodoList(countTodoList());
   }
 };
 
@@ -83,6 +93,7 @@ export const handleFilterList = (event) => {
     allTodoList.classList.add("selected");
     activeTodoList.classList.remove("selected");
     compleatedTodoList.classList.remove("selected");
+    renderCountTodoList(countTodoList());
     return;
   }
 
@@ -94,7 +105,7 @@ export const handleFilterList = (event) => {
     todoList.forEach((item) => {
       if (item.classList.contains("completed")) {
         item.remove();
-        countItem();
+        renderCountTodoList(countActiveTodoList());
       }
     });
     return;
@@ -108,7 +119,7 @@ export const handleFilterList = (event) => {
     todoList.forEach((item) => {
       if (item.classList.contains("false")) {
         item.remove();
-        countItem();
+        renderCountTodoList(countCheckedTodoList());
       }
     });
   }
