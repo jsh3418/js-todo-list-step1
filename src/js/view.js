@@ -5,7 +5,7 @@ export const renderTodoList = (item) => {
       <li data-id="${index}" class="${item.checked ? "completed" : "false"}">
         <div class="view">
           <input class="toggle" type="checkbox" id="${item.id}" ${
-        item.checked ? "checked" : "false"
+        item.checked ? "checked" : ""
       }/>
           <label class="label">${item.text}</label>
           <button class="destroy"></button>
