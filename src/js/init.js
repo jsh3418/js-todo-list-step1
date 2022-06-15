@@ -6,9 +6,9 @@ import {
   handleChangeTodo,
   handleFilterList,
 } from "./controller/controller.js";
-import { renderTodoList } from "./view.js";
-import { initData } from "./model.js";
-import { data } from "./model.js";
+import { renderTodoList, renderCountTodoList } from "./view.js";
+import { data, initData } from "./model.js";
+import { countTodoList } from "./controller/countTodoList.js";
 
 const initEventListener = () => {
   const inputform = document.querySelector("form");
@@ -29,4 +29,5 @@ export const initApp = () => {
   initEventListener();
   initData();
   renderTodoList(data.todos);
+  renderCountTodoList(countTodoList());
 };
