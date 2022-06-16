@@ -1,14 +1,13 @@
-import {
-  handleAddTodo,
-  handleCheckButton,
-  handleRemoveButton,
-  handleTodoDoubleClick,
-  handleChangeTodo,
-  handleFilterList,
-} from "./controller/controller.js";
 import { renderTodoList, renderCountTodoList } from "./view.js";
 import { data, initData } from "./model.js";
+
 import { countTodoList } from "./controller/countTodoList.js";
+import { handleAddTodo } from "./controller/handleAddTodo.js";
+import { handleChangeTodo } from "./controller/handleChangeTodo.js";
+import { handleCheckButton } from "./controller/handleCheckButton.js";
+import { handleFilterList } from "./controller/handleFilterList.js";
+import { handleRemoveButton } from "./controller/handleRemoveButton.js";
+import { handleTodoDoubleClick } from "./controller/handleTodoDoubleClick.js";
 
 const initEventListener = () => {
   const inputform = document.querySelector("form");
