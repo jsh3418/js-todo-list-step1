@@ -31,9 +31,9 @@ export const handleFilterList = (event) => {
     todoList.forEach((item) => {
       if (item.classList.contains("completed")) {
         item.remove();
-        renderCountTodoList(countActiveTodoList());
       }
     });
+    renderCountTodoList(countActiveTodoList());
     return;
   }
 
@@ -45,8 +45,8 @@ export const handleFilterList = (event) => {
     todoList.forEach((item) => {
       if (item.classList.contains("false")) {
         item.remove();
-        renderCountTodoList(countCheckedTodoList());
       }
     });
+    renderCountTodoList(countCheckedTodoList());
   }
 };
