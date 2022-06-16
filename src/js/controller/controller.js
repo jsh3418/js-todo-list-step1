@@ -10,7 +10,7 @@ import {
 export const handleAddTodo = (event) => {
   event.preventDefault();
 
-  const newTodo = document.querySelector("#new-todo-title").value;
+  const newTodo = document.forms[0].newTodo.value;
   if (newTodo === "") return;
 
   document.querySelector("#new-todo-title").value = "";
