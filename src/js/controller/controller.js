@@ -31,7 +31,7 @@ export const handleCheckButton = (event) => {
   const checkBox = event.target.closest(".toggle");
   if (checkBox === null) return;
   for (const item of data.todos) {
-    if (item.id === +checkBox.id) {
+    if (item.id === Number(checkBox.id)) {
       item.checked = !item.checked;
     }
   }
