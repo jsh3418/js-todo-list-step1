@@ -11,7 +11,7 @@ export const handleAddTodo = (event) => {
   event.preventDefault();
 
   const newTodo = document.forms[0].newTodo.value;
-  if (newTodo === "") return;
+  if (newTodo.trim() === "") return;
 
   document.querySelector("#new-todo-title").value = "";
 
